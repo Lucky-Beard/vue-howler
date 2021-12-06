@@ -1,6 +1,6 @@
 /*
  * vue-howler v0.7.0
- * (c) 2017 Mick Dekkers
+ * (c) 2021 Mick Dekkers
  * Released under the MIT License.
  */
 'use strict';
@@ -320,8 +320,10 @@ var index = {
         clearInterval(this.$data._polls.seek.id);
       }
     },
-    sources: function sources(_sources) {
-      this._reinitialize();
+    sources: function sources(_sources, oldSources) {
+      if (JSON.stringify(_sources) !== JSON.stringify(oldSources)) {
+        this._reinitialize();
+      }
     }
   },
 

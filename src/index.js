@@ -210,8 +210,10 @@ export default {
       }
     },
 
-    sources(sources) {
-      this._reinitialize()
+    sources(sources, oldSources) {
+      if (JSON.stringify(sources) !== JSON.stringify(oldSources)) {
+        this._reinitialize()
+      }
     }
   },
 
